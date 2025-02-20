@@ -176,6 +176,15 @@ void plutovg_canvas_set_color(plutovg_canvas_t* canvas, const plutovg_color_t* c
     plutovg_canvas_set_rgba(canvas, color->r, color->g, color->b, color->a);
 }
 
+void plutovg_canvas_get_color(plutovg_canvas_t* canvas, plutovg_color_t* color)
+{
+    plutovg_color_init_rgba(color, 
+        canvas->state->color.r,
+        canvas->state->color.g,
+        canvas->state->color.b,
+        canvas->state->color.a);
+}
+
 void plutovg_canvas_set_linear_gradient(plutovg_canvas_t* canvas, float x1, float y1, float x2, float y2, plutovg_spread_method_t spread, const plutovg_gradient_stop_t* stops, int nstops, const plutovg_matrix_t* matrix)
 {
     plutovg_paint_t* paint = plutovg_paint_create_linear_gradient(x1, y1, x2, y2, spread, stops, nstops, matrix);

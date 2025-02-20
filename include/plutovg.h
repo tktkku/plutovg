@@ -1441,6 +1441,13 @@ PLUTOVG_API void plutovg_canvas_set_rgba(plutovg_canvas_t* canvas, float r, floa
 PLUTOVG_API void plutovg_canvas_set_color(plutovg_canvas_t* canvas, const plutovg_color_t* color);
 
 /**
+ * @brief Gets the current paint color.
+ *
+ * @param canvas A pointer to a `plutovg_canvas_t` object.
+ * @param color A pointer to a `plutovg_color_t` object.
+ */
+PLUTOVG_API void plutovg_canvas_get_color(plutovg_canvas_t* canvas, plutovg_color_t* color);
+/**
  * @brief Sets the current paint to a linear gradient.
  *
  * @param canvas A pointer to a `plutovg_canvas_t` object.
