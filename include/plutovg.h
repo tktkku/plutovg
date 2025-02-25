@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2024 Samuel Ugochukwu <sammycageagle@gmail.com>
+ * Copyright (c) 2020-2025 Samuel Ugochukwu <sammycageagle@gmail.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -967,6 +967,27 @@ PLUTOVG_API void plutovg_color_init_rgba32(plutovg_color_t* color, unsigned int 
  * @param value 32-bit unsigned ARGB value.
  */
 PLUTOVG_API void plutovg_color_init_argb32(plutovg_color_t* color, unsigned int value);
+
+/**
+ * @brief Initializes a color with the specified HSL color values.
+ *
+ * @param color A pointer to a `plutovg_color_t` object.
+ * @param h Hue component in degrees (0 to 360).
+ * @param s Saturation component (0 to 1).
+ * @param l Lightness component (0 to 1).
+ */
+PLUTOVG_API void plutovg_color_init_hsl(plutovg_color_t* color, float h, float s, float l);
+
+/**
+ * @brief Initializes a color with the specified HSLA color values.
+ *
+ * @param color A pointer to a `plutovg_color_t` object.
+ * @param h Hue component in degrees (0 to 360).
+ * @param s Saturation component (0 to 1).
+ * @param l Lightness component (0 to 1).
+ * @param a Alpha component (0 to 1).
+ */
+PLUTOVG_API void plutovg_color_init_hsla(plutovg_color_t* color, float h, float s, float l, float a);
 
 /**
  * @brief Converts a color to a 32-bit unsigned RGBA value.
