@@ -801,6 +801,7 @@ PLUTOVG_API plutovg_font_face_t* plutovg_font_face_load_from_file(const char* fi
  * @return A pointer to the loaded `plutovg_font_face_t` object, or `NULL` on failure.
  */
 PLUTOVG_API plutovg_font_face_t* plutovg_font_face_load_from_data(const void* data, unsigned int length, int ttcindex, plutovg_destroy_func_t destroy_func, void* closure);
+PLUTOVG_API plutovg_font_face_t* plutovg_font_face_load_from_data1(const void* data, unsigned int length, int ttcindex, plutovg_destroy_func_t destroy_func, void* closure);
 
 /**
  * @brief Increments the reference count of a font face.
@@ -861,6 +862,7 @@ PLUTOVG_API void plutovg_font_face_get_glyph_metrics(plutovg_font_face_t* face, 
  * @return The advance width of the glyph.
  */
 PLUTOVG_API float plutovg_font_face_get_glyph_path(plutovg_font_face_t* face, float size, float x, float y, plutovg_codepoint_t codepoint, plutovg_path_t* path);
+PLUTOVG_API float plutovg_font_face_get_glyph_path1(plutovg_font_face_t* face, float size, float x, float y, plutovg_codepoint_t codepoint, plutovg_path_t* path);
 
 /**
  * @brief Traverses the path of a glyph and calls a callback for each path element.
@@ -875,6 +877,7 @@ PLUTOVG_API float plutovg_font_face_get_glyph_path(plutovg_font_face_t* face, fl
  * @return The advance width of the glyph.
  */
 PLUTOVG_API float plutovg_font_face_traverse_glyph_path(plutovg_font_face_t* face, float size, float x, float y, plutovg_codepoint_t codepoint, plutovg_path_traverse_func_t traverse_func, void* closure);
+PLUTOVG_API float plutovg_font_face_traverse_glyph_path1(plutovg_font_face_t* face, float size, float x, float y, plutovg_codepoint_t codepoint, plutovg_path_traverse_func_t traverse_func, void* closure);
 
 /**
  * @brief Computes the bounding box of a text string and its advance width.
@@ -2187,6 +2190,7 @@ PLUTOVG_API float plutovg_canvas_fill_text(plutovg_canvas_t* canvas, const void*
  * @return The total advance width of the text.
  */
 PLUTOVG_API float plutovg_canvas_stroke_text(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y);
+PLUTOVG_API float plutovg_canvas_stroke_text1(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y);
 
 /**
  * @brief Intersects the current clipping region with text at the specified origin.
