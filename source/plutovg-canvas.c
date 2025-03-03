@@ -644,6 +644,22 @@ float plutovg_canvas_add_text(plutovg_canvas_t* canvas, const void* text, int le
     return advance_width;
 }
 
+float plutovg_canvas_add_text1(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
+{
+    plutovg_state_t* state = canvas->state;
+    if(state->font_face == NULL || state->font_size <= 0.f)
+        return 0.f;
+    plutovg_text_iterator_t it;
+    plutovg_text_iterator_init(&it, text, length, encoding);
+    float advance_width = 0.f;
+    while(plutovg_text_iterator_has_next(&it)) {
+        plutovg_codepoint_t codepoint = plutovg_text_iterator_next(&it);
+        advance_width += plutovg_font_face_get_glyph_path1(state->font_face, state->font_size, x + advance_width, y, codepoint, canvas->path);
+    }
+
+    return advance_width;
+}
+
 float plutovg_canvas_fill_text(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
 {
     plutovg_canvas_new_path(canvas);
@@ -659,6 +675,15 @@ float plutovg_canvas_stroke_text(plutovg_canvas_t* canvas, const void* text, int
     plutovg_canvas_stroke(canvas);
     return advance_width;
 }
+
+float plutovg_canvas_stroke_text1(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
+{
+    plutovg_canvas_new_path(canvas);
+    float advance_width = plutovg_canvas_add_text1(canvas, text, length, encoding, x, y);
+    plutovg_canvas_stroke(canvas);
+    return advance_width;
+}
+
 
 float plutovg_canvas_clip_text(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
 {
