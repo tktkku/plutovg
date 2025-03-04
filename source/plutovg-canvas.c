@@ -668,6 +668,14 @@ float plutovg_canvas_fill_text(plutovg_canvas_t* canvas, const void* text, int l
     return advance_width;
 }
 
+float plutovg_canvas_fill_text1(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
+{
+    plutovg_canvas_new_path(canvas);
+    float advance_width = plutovg_canvas_add_text1(canvas, text, length, encoding, x, y);
+    plutovg_canvas_fill(canvas);
+    return advance_width;
+}
+
 float plutovg_canvas_stroke_text(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y)
 {
     plutovg_canvas_new_path(canvas);

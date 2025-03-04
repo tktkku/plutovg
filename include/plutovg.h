@@ -2177,6 +2177,7 @@ PLUTOVG_API float plutovg_canvas_add_text1(plutovg_canvas_t* canvas, const void*
  * @return The total advance width of the text.
  */
 PLUTOVG_API float plutovg_canvas_fill_text(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y);
+PLUTOVG_API float plutovg_canvas_fill_text1(plutovg_canvas_t* canvas, const void* text, int length, plutovg_text_encoding_t encoding, float x, float y);
 
 /**
  * @brief Strokes a text at the specified origin.
